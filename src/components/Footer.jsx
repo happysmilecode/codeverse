@@ -61,6 +61,7 @@ const Footer = () => {
                   src={item.icon}
                   key={item.id}
                   alt={item.id}
+                  className={`w-[21px] h-[21px] object-contain cursor-pointer ${index !== item.length - 1 ? 'mr-6' : 'mr-0'}`}
                 />
               ))}
             </div>    
