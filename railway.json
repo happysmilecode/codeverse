@@ -1,0 +1,12 @@
+{
+    "name": "my-vite-react-app",
+    "build": {
+      "commands": [
+        "npm install --legacy-peer-deps",
+        "npm run build"
+      ]
+    },
+    "start": {
+      "command": "npm run preview"
+    }
+  }
