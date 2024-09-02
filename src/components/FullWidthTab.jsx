@@ -55,22 +55,35 @@ export default function FullWidthTab({ homeRef, skillsRef, portfolioRef, footerR
     setValue(index);
   };
 
+  // const scrollToSection = (index) => {
+  //   switch (index) {
+  //     case 0:
+  //       homeRef.current.scrollIntoView({ behavior: 'smooth' });
+  //       break;
+  //     case 1:
+  //       skillsRef.current.scrollIntoView({ behavior: 'smooth' });
+  //       break;
+  //     case 2:
+  //       portfolioRef.current.scrollIntoView({ behavior: 'smooth' });
+  //       break;
+  //     case 3:
+  //       footerRef.current.scrollIntoView({ behavior: 'smooth' });
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // };
   const scrollToSection = (index) => {
-    switch (index) {
-      case 0:
-        homeRef.current.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case 1:
-        skillsRef.current.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case 2:
-        portfolioRef.current.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case 3:
-        footerRef.current.scrollIntoView({ behavior: 'smooth' });
-        break;
-      default:
-        break;
+    const refs = [homeRef, skillsRef, portfolioRef, footerRef];
+    const offset = -50; // Adjust this value based on your fixed header height
+
+    if (refs[index] && refs[index].current) {
+      const element = refs[index].current;
+      const top = element.getBoundingClientRect().top + window.pageYOffset + offset;
+      window.scrollTo({
+        top: top,
+        behavior: 'smooth'
+      });
     }
   };
 
